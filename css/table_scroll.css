@@ -1,0 +1,36 @@
+/*
+*	author : sbhardwa@adobe.com;
+*	v1.0
+*	css for showing the table with scrolling.
+*/
+table.menu-picker {
+        width: 100%;
+}
+
+.menu-picker thead, .menu-picker tbody, .menu-picker tr, .menu-picker td, .menu-picker th {
+    display: block;
+}
+
+.menu-picker tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.menu-picker thead th {
+    height: 30px;
+
+    /*text-align: left;*/
+}
+
+.menu-picker tbody {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+
+.menu-picker tbody td, .menu-picker thead th {
+    width: 30%;
+    float: left;
+}

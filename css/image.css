@@ -1,0 +1,23 @@
+/*
+	@author : sbhardwa@adobe.com
+	v1.0
+	file contains Menu View CSS.
+*/
+.imageBox {
+	height:50%;
+	width:100%;
+}
+.my_panel > .panel_body {
+	padding:0px;
+}
+.my_panel > .panel-body > img.resto-avatar {
+	width: 100%;
+	height: 100%;
+}
+.my_panel > .panel-footer {
+	text-align: center;
+}
+
+.resto-details {
+	margin-top: 15px;
+}

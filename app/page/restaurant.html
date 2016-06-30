@@ -1,0 +1,79 @@
+<!--	
+	@author : sbhardwa@adobe.com
+	v1.0
+	Third page content. 
+-->
+<div ng-controller="restaurantMenuController">
+	<div class="row address-details-line">
+		<div class="user-details-box"><span>Deliver to: {{userName}}, {{userAddress}}, {{userCity}}.</span></div>
+		<div class="change-button-box"><span><a href="#/?bpr=1">Change</a></span></div>
+	</div>
+
+	<div class="panel panel-default resto-details">
+	 	<div class="panel-heading" >
+	 		<div class="row">
+	 			<div class="col-lg-5 col-md-8 col-sm-8">
+	 				<div class="panel panel-default my_panel">
+	 					<div class="panel-body">
+	 						<img class="resto-avatar" ng-src="{{logoRestaurant}}" alt="" img="img-responsive center-block"/>
+	 					</div>
+	 				</div>
+	 			</div>
+	 			<div class="col-lg-3 col-md-6 col-sm-2">
+	 				<h1> 
+	 					<strong>
+	 					{{nameRestaurant}}
+	 					</strong>
+	 				</h1>
+	 				 <div>
+	 					{{cuisines}}
+	 				</div>
+	 			</div>
+
+	 			<div class="col-lg-1 col-md-3 col-sm-2 pull-right">
+	 				<div class="panel panel-primary ">
+	 					<div class="panel-heading">
+	 						<strong>{{ratingRestaurant}}</strong>/5
+	 					</div>
+	 				</div>
+	 				<div>
+	 				<span class="glyphicon glyphicon-thumbs-up"></span> {{votes}}
+	 				</div>
+	 			</div>
+	 		</div>
+	 	</div>
+ 	</div>
+ 	<div class="col-md-6 col-sm-6 col-lg-6">
+ 		<div class="panel panel-success">
+ 		<menu-view
+				items="Dishes",
+				incr="increase(param)",
+ 				decr="decrease(param)",
+ 				price-place-holder="price"
+		>
+		</menu-view>
+		</div>
+ 	</div>
+ 	<div class="col-md-6 col-sm-6 col-lg-6">
+ 		<div ng-show="buyingItems.length > 0">
+ 			<div class="panel panel-primary">
+	 			<menu-view
+	 				items="buyingItems"
+	 				incr="increase(param)",
+	 				decr="decrease(param)",
+	 				price-place-holder="computePrice"
+	 			>
+	 			</menu-view>
+	 			<div class="row">
+		 			<div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-2 col-lg-3">
+		 				<strong>Total Price</strong>  {{totalPrice}}
+		 			</div>
+		 			<div class="col-md-3 col-md-offset-5 col-sm-3 col-sm-offset-3 col-lg-3">
+		 				<a href="#/checkout"><i class="glyphicon glyphicon-shopping-cart"></i><strong> Checkout </strong></a>
+		 			</div>
+	 			</div>
+	 			<br/>
+ 			</div>
+ 		</div>
+ 	</div>
+</div>

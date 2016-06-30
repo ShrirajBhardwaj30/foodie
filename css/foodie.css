@@ -1,0 +1,136 @@
+/**
+* Description: Contains all the styles necessary to make the app responsive as well as other cosmetic styles.
+* @author: Atul Rajmane
+*/
+* {
+	padding: 0px;
+	margin: 0px;
+}
+nav .navbar-header a {
+	font-size: 20px;
+	font-weight: bold;
+}
+nav .help-link-group span {
+	padding: 15px 2px 15px 0;
+	color: #EDEDED;
+}
+nav .help-link-group .how {
+	padding-right: 20px;
+}
+nav .help-link-group .help {
+	padding-right: 10px;
+}
+#home-content {
+	background-image: url('/images/tavern.jpg');
+	height: 1000px;
+	width: 100%;
+}
+.modal-dialog {
+	margin-top: 50px !important;
+}
+.modal-header, .modal-header h4 {
+	background-color: #5cb85c;
+	color: white !important;
+	text-align: center;
+	font-size: 30px;
+}
+
+@media only screen and (max-width: 450px) {
+	.address-details-line span {
+		text-align: center;
+	}
+	.change-button-box span {
+		padding-top: 0 !important;
+	}
+}
+@media only screen and (min-width: 450px) {
+	.user-details-box {
+		width: 70%;
+		float: left;
+	}
+	.change-button-box {
+		width: 30%;
+		float: right;
+	}
+	.change-button-box span {
+		text-align: right;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.filter-box .filter-label, .list-box .list-label {
+		text-align: center;
+	}
+}
+@media only screen and (min-width: 600px) {
+	.result-box {
+		clear: both;
+	}
+	.filter-box {
+		width: 30%;
+		float: left;
+	}
+	.list-box {
+		width: 70%;
+		float: left;
+	}
+	.filter-box .filter-label, .checkbox {
+		width: 80%;
+	}
+}
+
+.address-details-line {
+	background-color: #E1E1E1;
+	margin-left: 0;
+	margin-right: 0;
+	border-radius: 5px;
+}
+.address-details-line span {
+	padding: 10px;
+	display: block;
+	text-transform: capitalize;
+}
+.result-box {
+	margin-left: 0;
+	margin-right: 0;
+}
+.filter-box {
+	margin-top: 15px;
+	padding: 0;
+}
+.list-box {
+	padding: 0;
+	margin-top: 15px;
+}
+.filter-box p {
+	font-size: 14px;
+	padding-left: 10px;
+}
+.filter-box .filter-label, .list-box .list-label {
+	background-color: #E1E1E1;
+	font-size: 16px;
+	padding: 10px 0 10px 10px;
+	border-radius: 5px;
+}
+.checkboxes-group {
+	padding-left: 15px;
+}
+.checkbox {
+	padding-top: 10px;
+	padding-bottom: 5px;
+	border-top: 1px solid #E1E1E1;
+}
+.list-box table {
+	padding-left: 15px;
+}
+.blue-text {
+	color: #008FB3;
+}
+.resto .resto-thumbnail {
+	width: 75px;
+	height: 60px;
+	float: left;
+}
+.resto .resto-details {
+	padding-left: 10px;
+	float: left;
+}

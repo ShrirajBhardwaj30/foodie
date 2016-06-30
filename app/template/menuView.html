@@ -1,0 +1,28 @@
+<!--	
+	@author : sbhardwa@adobe.com
+	v1.0
+	Template for showing the table of menu. 
+-->
+<table class="table menu-picker">
+	<thead>
+		<tr>
+			<th>Name</th><th>Price</th><th>Quantity</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="item in items"> 
+			<td>{{item.name}}</td><td>{{item[pricePlaceHolder]}}</td>
+			<td class="text-center">
+				<div class="row">
+				<button type="button" ng-click="incr({param: item})" ><i class="glyphicon glyphicon-hand-up"></i></button>
+				</div>
+				<div class="row">
+				{{item.quantity}}
+				</div>
+				<div class="row">
+				<button type="button" ng-click="decr({param: item})" ><i class="glyphicon glyphicon-hand-down"></i></button>
+				</div>
+			</td>
+		</tr>
+		</tbody>
+</table>

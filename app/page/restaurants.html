@@ -1,0 +1,53 @@
+<!--
+	Description: Page2 where the restaurants in the user's city are enlisted
+	@author: Atul Rajmane
+-->
+<div ng-controller="RestaurantListController">
+	<div class="row address-details-line">
+		<div class="user-details-box"><span>Deliver to: {{userName}}, {{userAddress}}, {{userCity}}.</span></div>
+		<div class="change-button-box"><span><a href="#/?bpr=1">Change</a></span></div>
+	</div>
+	<div class="row result-box">
+		<div class="filter-box">
+			<p class="filter-label">Filter Restaurants</p>
+			<p class="">Cuisine</p>
+			<div class="checkboxes-group">
+				<form>
+					<div class="checkbox" ng-repeat="csn in cuisines">
+						<label><input type="checkbox" value="" ng-click="filter(csn)">{{csn}}</label>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="list-box">
+			<p class="list-label">{{numRestaurantsFound}} restaurants found!</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<td>
+							<strong class="blue-text">
+								<a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">Name</a>
+							</strong>
+						</td>
+
+						<td>
+							<strong class="blue-text">
+								<a href="" ng-click="sortType = 'rating'; sortReverse = !sortReverse">Rating</a>
+							</strong>
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="resto in restaurants | orderBy:sortType:sortReverse">
+						<td>
+							<div class="resto">
+								<div class="resto-thumbnail"><a href="#/restaurant/{{resto.id}}"><img src="/images/avatar1.jpg" width="75" height="60" /></a></div>
+								<p class="resto-details"><a href="#/restaurant/{{resto.id}}"><strong class="blue-text">{{resto.name}}</strong></a><br />{{resto.address}}</p></td>
+							</div>
+						<td>{{resto.rating}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

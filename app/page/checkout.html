@@ -1,0 +1,95 @@
+<!-- 
+     @author: Abhishek
+     HTML page for the checkout screen
+-->
+<div class="" ng-controller="CheckoutController">
+      
+      <!-- Customer Details -->
+      <div class="col-md-3 addressPane">
+          <h4>Deliver To:</h4>
+          {{customerName}}
+          <br>
+          {{customerAddress}}, {{customerCity}}
+          <br>
+
+          <!--Change Button-->
+          <form action="#/?bpr=1">
+            <input type="submit" class="btn btn-info btn-xs" value="Change" id="changeButton">
+          </form>  
+          <br>
+      </div>
+
+      <br />
+
+      <!-- Buttons to modify or confirm the cart -->
+      <div style="float:right"> 
+        <button ng-click="loadMenu()" type="button" class="btn btn-warning" id="menuButton">Back to Menu</button></a>
+        <button ng-click="deleteCart()" type="button" class="btn btn-danger" id="clearButton">Clear Cart</button>
+        <button type="button" class="btn btn-success" ng-click="confirmCart()" id="confirmButton">Confirm Cart</button>
+      </div>
+      
+
+      <!-- The Cart -->
+      <div class="panel col-md-12 cartPanel">
+        <h4>Your Cart:</h4>
+        <table class="table table-hover" id="orderTable">
+          <thead>  
+            <tr>
+              <th class="col-md-1">Quantity</th>
+              <th class="col-md-7">Item</th>
+              <th class="col-md-2">Price</th>
+              <th class="col-md-2">Subtotal</th>
+            </tr>
+          </thead>
+          </tbody>  
+            <tr ng-repeat="item in order">
+              <td class="col-md-1"><input type="number" min="0" max="99" ng-model=item.quantity step="1" ng-change="calculateTotal(item)"></td>
+              <td class="col-md-7">{{item.name}}</td>
+              <td class="col-md-2">{{item.price}}</td>
+              <td class="col-md-2">{{item.quantity * item.price}}</td>
+              <td><input type="button" value="x" ng-click="removeItem($event,item)"></td>
+            </tr>
+          </tbody>
+            <tr>
+              <td class="col-md-1"></td>
+              <td class="col-md-7"></td>
+              <td class="col-md-2">Total: </td>
+              <td class="col-md-2" id="demo">{{total}}</td>
+            </tr>
+        </table>
+
+        <div class="row col-md-12" ng-show="orderInvalid">
+          <div class='alert alert-danger'>
+            <strong>Total is 0!</strong> Your cart needs to have atleast one item.
+          </div>
+        </div>
+      </div>
+    
+      <!--Selecting the type of Payment -->
+      <div class="row col-md-12" ng-show="cartConfirmed">
+        <h4>Select type of payment:</h4>
+        <form role="form">
+          <div class="radio">
+            <label><input type="radio" name="paymentType" id="radioCod" ng-click="changePaymentType()">Cash on Delivery</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="paymentType" id="radioPay" ng-click="changePaymentType()">Pay Now</label>
+          </div>
+        </form>
+      </div>
+
+      <div class="row col-md-12" ng-show="cod">
+        <button type="button" class="btn btn-success" id="codButton" ng-click="finishOrder()">Place Order</button>
+      </div>
+
+      <div class="row col-md-12" ng-show="pay">
+        <button type="button" id="payButton" class="btn btn-info">Place Order & Pay</button>
+      </div>
+
+      <div class="row col-md-12" ng-show="orderPlaced">
+        <div class='alert alert-success' style="margin-top:10px">
+          <strong>Thank You!</strong> Your order has been placed successfully.
+        </div>
+      </div>
+      
+</div>

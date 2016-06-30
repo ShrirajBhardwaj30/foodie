@@ -1,0 +1,17 @@
+/*
+*@author: Abhishek
+* CSS for styling the checkout screen
+*/
+.cartPanel {
+	margin-top: 20px;
+	border: 2px solid lightgrey;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.addressPane {
+	background-color: lightgrey;
+	border: 2px solid grey;
+	border-radius: 5px;
+	padding: 10px"
+}
