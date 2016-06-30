@@ -1,0 +1,69 @@
+
+JSON-Server : 
+   1.navigate to parent directory of data directory. and run
+      json-server --static . --port 9000 data/db.js
+
+
+Zomato API : 
+   we have used Zomato api for restaurants. 
+   we have fetched data for five cities delhi,kolkata,mumbai,pune,bangalore
+   each cities has 10 restaurants.
+   These details are stored in data/locationRestaurant.json
+   data/restaurantMenu.json contains information about the menu of Restaurant.
+
+   1. Some part of json had been manually edited for reusability and modularity like,
+      localhost:9000/location/delhi {fetches the whole object of city delhi}
+      localhost:9000/menu/10011 {fetches the restarant details with id 10011}
+
+
+
+Page 1 (URL: /) (Atul)
+   This page takes user name, city and address through a modal dialogue. If all of the user information is present in the local storage
+   user is taken to the restaurant listing page. If any of the details is absent, the modal dialogue is pre populated with the available
+   details. For example, user's name and address are present in the local storage but his/her city is not. Then user will not be
+   taken to the listing page but the modal dialogue will be displayed with his/her name and address pre-populated.
+
+   We have kept the "How" and "Help" links unclick-able.
+
+   This page is responsive and so has been tested on various screen sizes.
+
+Page 2 (/restaurants) (Atul)
+   On this page all the restaurants from the user's city are displayed. Columns are sortable by clicking on the column headers.
+   Cuisine filters have also been implemented.
+
+   User details are shown just below the navigation bar. Clicking on change takes user to the modal dialogue just as was expected.
+
+   This page is responsive and so has been tested on various screen sizes.
+
+Page 3 (/restaurant/{{rid}}) : (Shriraj) 
+   1. Restaurant view shows the menu of the restaurant, its rating, its votes, logo, name , cuisines.
+   2. user can edit his order from the page and checkout.
+   3. if user lands on the same page, he will be able to see his cart (which is stored locally inside WEBSql Database on browser).
+   4. if user opens page of another restaurant, his cart of any other restaurant will be cleared.
+
+
+Page 4 (/checkout) (Abihshek)
+
+ - It provides the following functionalities to the user:
+   1) The user can change his name or address or city by clicking on "Change". It redirects the user to the first screen.
+   2) The user can completely clear the cart by clicking on "Clear Cart". It will redirect the user to the list of restaurants in his
+      city.
+   3) The user can add more items to his cart by clicking on "Back to Menu". It will redirect him to the page of the restaurant from
+      which he chose earlier items.
+   4) The user can delete a particular item from the cart by clicking on the corresponding "x" button.
+   5) The user can increase or decrease the quantity of a particular item.
+   6) The user can confirm the cart and proceed further.
+   7) The user can choose from 2 methods of payment: "Cash on Delivery" or "Pay Now".
+   8) If the user chooses "Cash on Delivery", he can place the order straightaway and get the confirmation.
+   9) The "Pay Now" option has not been implemented as of now.
+
+ - The details of the user (name, address and city) are fetched from local storage of the browser.
+
+ - The contents of the cart are obtained from the USER database of the WebSQL. A service has been written in order to operate on
+   WebSQL. The APIs provided by this service have been used in order to perform search/add/delete operations on the database.
+
+ - A check has been implemented in order to ensure that a user doesn't confirm an empty cart. There should be atleast one item in
+   the cart before it can be confirmed.
+
+ - A JSON object is printed inside the browser console after succesfull completion of the process.
+*****************************************************************************************************
